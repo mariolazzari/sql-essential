@@ -4,7 +4,7 @@
 
 DROP TABLE IF EXISTS customer;
 CREATE TABLE customer (
-    id              INTEGER PRIMARY KEY, 
+    id              INTEGER PRIMARY KEY,
     name            TEXT,
     address         TEXT,
     city            TEXT,

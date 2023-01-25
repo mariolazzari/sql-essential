@@ -41,10 +41,10 @@ SELECT COUNT(LifeExpectancy) FROM Country;
 
 SELECT * FROM customer;
 
-INSERT INTO customer (name, address, city, state, zip) 
+INSERT INTO customer (name, address, city, state, zip)
   VALUES ('Fred Flintstone', '123 Cobblestone Way', 'Bedrock', 'CA', '91234');
 
-INSERT INTO customer (name, city, state) 
+INSERT INTO customer (name, city, state)
   VALUES ('Jimi Hendrix', 'Renton', 'WA');
 
 -- 08 Updating Data

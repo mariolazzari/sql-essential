@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS test;
 
 CREATE TABLE test ( a INTEGER, b TEXT, c TEXT );
 
-INSERT INTO test VALUES ( 1, 'This', 'Right here!' ); 
-INSERT INTO test ( b, c ) VALUES ( 'That', 'Over there!' ); 
+INSERT INTO test VALUES ( 1, 'This', 'Right here!' );
+INSERT INTO test ( b, c ) VALUES ( 'That', 'Over there!' );
 INSERT INTO test DEFAULT VALUES;
 INSERT INTO test ( a, b, c ) SELECT id, name, description from item;
 
@@ -114,15 +114,15 @@ DROP TABLE IF EXISTS test;
 -- world.db
 
 SELECT * FROM Country;
-SELECT Name, Continent, Population FROM Country 
+SELECT Name, Continent, Population FROM Country
   WHERE Population < 100000 ORDER BY Population DESC;
-SELECT Name, Continent, Population FROM Country 
+SELECT Name, Continent, Population FROM Country
   WHERE Population < 100000 OR Population IS NULL ORDER BY Population DESC;
-SELECT Name, Continent, Population FROM Country 
+SELECT Name, Continent, Population FROM Country
   WHERE Population < 100000 AND Continent = 'Oceania' ORDER BY Population DESC;
-SELECT Name, Continent, Population FROM Country 
+SELECT Name, Continent, Population FROM Country
   WHERE Name LIKE '%island%' ORDER BY Name;
-SELECT Name, Continent, Population FROM Country 
+SELECT Name, Continent, Population FROM Country
  WHERE Continent IN ( 'Europe', 'Asia' ) ORDER BY Name;
 
 -- 10 SELECT DISTINCT
@@ -130,7 +130,7 @@ SELECT Name, Continent, Population FROM Country
 
 SELECT Continent FROM Country;
 SELECT DISTINCT Continent FROM Country;
-Using the SELECT DISTINCT statement, you will get only unique results. 
+Using the SELECT DISTINCT statement, you will get only unique results.
 
 -- test.db
 
@@ -180,7 +180,7 @@ SELECT
 
 SELECT
   CASE a WHEN 1 THEN 'true' ELSE 'false' END AS boolA,
-  CASE b WHEN 1 THEN 'true' ELSE 'false' END AS boolB 
+  CASE b WHEN 1 THEN 'true' ELSE 'false' END AS boolB
   FROM booltest
 ;
 

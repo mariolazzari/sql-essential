@@ -41,12 +41,12 @@ DROP TABLE right;
 SELECT * FROM sale;
 SELECT * FROM item;
 
-SELECT s.id AS sale, i.name, s.price 
+SELECT s.id AS sale, i.name, s.price
   FROM sale AS s
   JOIN item AS i ON s.item_id = i.id
   ;
 
-SELECT s.id AS sale, s.date, i.name, i.description, s.price 
+SELECT s.id AS sale, s.date, i.name, i.description, s.price
   FROM sale AS s
   JOIN item AS i ON s.item_id = i.id
   ;
