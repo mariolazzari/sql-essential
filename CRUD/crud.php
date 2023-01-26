@@ -5,7 +5,7 @@
     CRUD: Create, Read, Update, Delete --  Database example
 
     *** This application and its related files are
-        provided with no warranty and no support. 
+        provided with no warranty and no support.
 
     Copyright (c) 2009-2019 The BearHeart Group LLC
 
@@ -73,7 +73,7 @@ function _init( )
     $CRUD['SELF'] = $_SERVER["SCRIPT_NAME"];
 
     // lose "index.php" if nec (regexes are cumbersome in php. Feh.)
-    $CRUD["SELF"] = preg_replace('/([\\/\\\])index\\.php$/i', '$1', $CRUD["SELF"]); 
+    $CRUD["SELF"] = preg_replace('/([\\/\\\])index\\.php$/i', '$1', $CRUD["SELF"]);
 
     foreach ( array(
             'DBVERSION', 'BUTTONS', 'HIDDENS', 'MESSAGES', 'ERRORS', 'CONTENT', 'PRECONTENT', 'POSTCONTENT',
@@ -217,17 +217,17 @@ function list_albums()
         $row_count++;
     } while ( $row = $sth->fetch(PDO::FETCH_ASSOC) );
 
-    $a .= "</tr>\n"; 
-    $a .= "</table>\n"; 
+    $a .= "</tr>\n";
+    $a .= "</table>\n";
 
     message( "There are only " . number_format($row_count) . " albums in the database. Add some more!");
     content($a);
 }
 
-function display_tracks ( $album_id ) 
+function display_tracks ( $album_id )
 {
     global $track_fields;
-    
+
     // $a is an accumulator for the output string
     $a = subheading('Tracks');
     $a .= "<table class=\"results\">\n";
@@ -321,7 +321,7 @@ function album_delete_confirm( $id )
     $a .= heading('Confirm Delete');
     $a .= "<p> Are you sure you want to delete the album \"" .
         $album['title'] .
-        "\" and all its tracks?" . 
+        "\" and all its tracks?" .
         "</p>\n";
     $a .= "<p>\n";
     $a .= button_element('cancel', " Cancel ") . "&nbsp;";
@@ -344,7 +344,7 @@ function track_delete_confirm( $track_id, $album_id )
         $track['title'] .
         "\" from the album \"" .
         $album['title'] .
-        "\"?" . 
+        "\"?" .
         "</p>\n";
     $a .= "<p>\n";
     $a .= button_element('cancel', " Cancel ") . "&nbsp;";
@@ -660,7 +660,7 @@ function get_tracks_sql ( $album_id )
     switch(DBENGINE) {
         case 'mysql':
             $query = '
-                SELECT 
+                SELECT
                     id, album_id, title, track_number,
                     CONCAT_WS(
                         ":",
@@ -674,7 +674,7 @@ function get_tracks_sql ( $album_id )
             break;
         case 'sqlite3':
             $query = "
-                SELECT 
+                SELECT
                     id, album_id, title, track_number, SEC_TO_TIME(duration) AS disp_duration
                     FROM track
                     WHERE album_id = ?
@@ -683,7 +683,7 @@ function get_tracks_sql ( $album_id )
             break;
         case 'pgsql':
             $query = "
-                SELECT 
+                SELECT
                     id, album_id, title, track_number,
                     duration / 60 || ':' || TO_CHAR(duration % 60, 'FM09') AS disp_duration
                     FROM track
@@ -772,7 +772,7 @@ function update_album_sql( $album )
     $dbh = $CRUD['dbh'];
 
     $query =  '
-        UPDATE album 
+        UPDATE album
             SET title = ?, artist = ?, label = ?, released = ?
             WHERE id = ?
     ';
@@ -869,7 +869,7 @@ function fetch_track( $id )
     switch(DBENGINE) {
         case 'mysql':
             $query = '
-                SELECT 
+                SELECT
                     id, album_id, title, track_number,
                     CONCAT_WS(
                         ":",
@@ -882,7 +882,7 @@ function fetch_track( $id )
             break;
         case 'sqlite3':
             $query = "
-                SELECT 
+                SELECT
                     id, album_id, title, track_number, SEC_TO_TIME(duration) AS disp_duration
                     FROM track
                     WHERE id = ?
@@ -890,7 +890,7 @@ function fetch_track( $id )
             break;
         case 'pgsql':
             $query = "
-                SELECT 
+                SELECT
                     id, album_id, title, track_number,
                     duration / 60 || ':' || TO_CHAR(duration % 60, 'FM09') AS disp_duration
                     FROM track
@@ -999,7 +999,7 @@ function display_name ($n)
     // start with the exceptions
     if ($n == 'track_number') return 'Track';
 
-    $n = strtr( $n, '_', ' ' );     // make _'s into spaces. 
+    $n = strtr( $n, '_', ' ' );     // make _'s into spaces.
     $n = ucwords( $n );
     return $n;
 }
@@ -1117,7 +1117,7 @@ function db_message($dbh)
 {
     $e = $dbh->errorInfo();
     return $e[2];
-    
+
 }
 
 function message()

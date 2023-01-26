@@ -6,7 +6,7 @@
     a program for demonstrating SQL
 
     *** This application and its related files are
-        provided with no warranty and no support. 
+        provided with no warranty and no support.
 
     Copyright (c) 2009-2018 The BearHeart Group LLC
 
@@ -14,7 +14,7 @@
     Do not remove copyright or attribution.
 
 MAJOR UPDATES ONLY:
-    1.1 bw -- 2009-04-22 - Updated to work with all PHP warnings enabled. 
+    1.1 bw -- 2009-04-22 - Updated to work with all PHP warnings enabled.
     1.2 bw -- 2010-07-08 - Updated to support SQLite3
     2.0 bw -- 2010-07-17 - Significant rewrite to support mixed multiple queries
     2.1 bw -- 2010-08-04 - Support for CREATE TRIGGER ... BEGIN ... END;
@@ -130,7 +130,7 @@ function _init( )
 
     if($dbh) {
         // set exception mode for errors (why is this not the default?)
-        // this is far more portable for different DB engines than trying to 
+        // this is far more portable for different DB engines than trying to
         // parse error codes
         $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         $SID['dbh'] = $dbh;
@@ -167,7 +167,7 @@ function _init( )
     $SID['xlat'][chr(159)] = '&Yuml;';      // Latin Capital Letter Y With Diaeresis
 
     // lose "index.php" if nec (regexes are cumbersome in php. Feh.)
-    $SID["SELF"] = preg_replace('/([\\/\\\])index\\.php$/i', '$1', $SID["SELF"]); 
+    $SID["SELF"] = preg_replace('/([\\/\\\])index\\.php$/i', '$1', $SID["SELF"]);
 
     // set PHP execution timeout (in seconds) for long SQL queries on slow machines - bw 2018-06-04
     set_time_limit(120);
@@ -199,7 +199,7 @@ function do_sql( $query )
 {
     global $SID;
     $dbh = $SID['dbh'];
-    
+
     // do some cleanup and input checking
     $query = trim($query);     // trim leading and trailing spaces
     $query_list = split_queries($query);    // 2.1 - instead of explode
@@ -309,7 +309,7 @@ function select_results( &$sth, $qcount, $qnum = NULL )
         $row_count ++;
     }
 
-    $a .= "</table>\n"; 
+    $a .= "</table>\n";
 
     $query_str = $sth->queryString;
     if(strlen($query_str) > $MAX_QLEN) {
@@ -357,9 +357,9 @@ function database_select_list( $database )
                 error_message($e->getMessage());
                 return;
             }
-    
+
             $a = "<option value=\"--NONE--\">-- Select Database --</option>\n";
-        
+
             while( $row = $sth->fetch() ) {
                 $v = $row['Database'];
                 foreach( $db_list as $s ) {
@@ -397,9 +397,9 @@ function database_select_list( $database )
                 error_message($e->getMessage());
                 return;
             }
-    
+
             $a = "<option value=\"--NONE--\">-- Select Database --</option>\n";
-        
+
             while( $row = $sth->fetch() ) {
                 $v = $row['datname'];
                 foreach( $db_list as $s ) {
